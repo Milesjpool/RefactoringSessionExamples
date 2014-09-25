@@ -64,7 +64,7 @@ namespace Example2.Tests
 
 			var recomender = new BooksRecomender(library);
 
-			recomender.RecommendBook("1984", "George Orwell", "Fiction", "Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
+			recomender.CreateBookRecommendations("1984", "George Orwell", "Fiction", "Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
 
 
 			var booksIMayLike = recomender.FindMeBooksIMayLikeBasedOnThisBook("1984", "George Orwell", "Fiction");

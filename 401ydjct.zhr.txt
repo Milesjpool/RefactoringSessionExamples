@@ -1,0 +1,4 @@
+﻿[user]
+	name = Miles Pool
+	email = MilesJPool@gmail.com
+

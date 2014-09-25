@@ -21,7 +21,7 @@ namespace Example2
 
 		public List<KeyValuePair<string, string>> GetBooksByGenre(string typeOfBook)
 		{
-			return Books.BooksByGenreFromTitle.FindAll(x => x.Value == typeOfBook);
+			return Books.BooksAndGenres.FindAll(x => x.Value == typeOfBook);
 		}
 
 
@@ -70,22 +70,23 @@ namespace Example2
 			return returnableRecommendBooks;
 		}
 
-		public void RecommendBook(string title1, string author1, string genreOfBook1, string titleOfBook2, string authorOfBook2, string typeofBook2)
+		public void CreateBookRecommendations(string title1, string author1, string genreOfBook1, string titleOfBook2, string authorOfBook2, string typeofBook2)
 		{
 
-			if (Books.BooksAndAuthors.Find(x => x.Value == title1).Value == null)
-			{
-				Books.AddBook(title1, author1, genreOfBook1);
-			}
-
-			if (Books.BooksAndAuthors.Find(x => x.Value == titleOfBook2).Value == null)
-			{
-				Books.AddBook(titleOfBook2,authorOfBook2,typeofBook2);
-			}
+			AddLibraryIfNotPresent(title1, author1, genreOfBook1);
+			AddLibraryIfNotPresent(titleOfBook2, authorOfBook2, typeofBook2);
 
 			RecommendedBooks.Add(new KeyValuePair<string, string>(title1,titleOfBook2));
 
 
+		}
+
+		private void AddLibraryIfNotPresent(string title1, string author1, string genreOfBook1)
+		{
+			if (Books.BooksAndAuthors.Find(x => x.Value == title1).Value == null)
+			{
+				Books.AddBook(title1, author1, genreOfBook1);
+			}
 		}
 	}
 }
