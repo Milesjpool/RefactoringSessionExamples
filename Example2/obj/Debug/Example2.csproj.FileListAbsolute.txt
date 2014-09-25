@@ -1,5 +1,0 @@
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2\bin\Debug\Example2.dll
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2\bin\Debug\Example2.pdb
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2\obj\Debug\Example2.csprojResolveAssemblyReference.cache
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2\obj\Debug\Example2.dll
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2\obj\Debug\Example2.pdb

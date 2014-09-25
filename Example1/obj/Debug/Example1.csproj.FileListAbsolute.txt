@@ -1,5 +1,0 @@
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example1\bin\Debug\Example1.exe.config
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example1\bin\Debug\Example1.exe
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example1\bin\Debug\Example1.pdb
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example1\obj\Debug\Example1.exe
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example1\obj\Debug\Example1.pdb

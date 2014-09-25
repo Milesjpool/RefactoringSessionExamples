@@ -1,9 +1,0 @@
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\bin\Debug\Example2.Tests.dll
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\bin\Debug\Example2.Tests.pdb
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\bin\Debug\Example2.dll
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\bin\Debug\nunit.framework.dll
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\bin\Debug\Example2.pdb
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\bin\Debug\nunit.framework.xml
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\obj\Debug\Example2.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\obj\Debug\Example2.Tests.dll
-C:\Users\Emma-AshleyL\Documents\Visual Studio 2012\Projects\CodeSmellsExercises\Example2.Tests\obj\Debug\Example2.Tests.pdb
