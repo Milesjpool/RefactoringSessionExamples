@@ -46,9 +46,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Example2\Example2.csproj">
       <Project>{4b14f8ad-0811-45aa-80a8-e61cf0286251}</Project>
       <Name>Example2</Name>
