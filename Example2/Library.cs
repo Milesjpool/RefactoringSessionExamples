@@ -29,9 +29,9 @@ namespace Example2
 			Books.Add(new Book(title,author,genre));
 		}
 
-	    public List<KeyValuePair<string,string>> GetBooksByGenre(string typeOfBook)
-	    {
-		    return BooksAndGenres.FindAll(x => x.Value == typeOfBook);
-	    }
+		public List<Book> GetBooksByGenre(string genre)
+		{
+			return Books.FindAll(x => x.Genre == genre);
+		}
     }
 }

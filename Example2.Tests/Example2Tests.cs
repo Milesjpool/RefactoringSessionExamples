@@ -10,19 +10,8 @@ namespace Example2.Tests
 	[TestFixture]
     public class Example2Tests
     {
-
 		[Test]
-		public void BooksCanBeAddedToALibrary()
-		{
-			var library = new Library();
-
-			library.AddBook("1984", "George Orwell", "Fiction");
-
-			Assert.That(library.BooksAndAuthors.Contains(new KeyValuePair<string, string>("George Orwell", "1984")));
-		}
-
-		[Test]
-		public void BookObjectCanBeAddedToLibrary()
+		public void BookCanBeAddedToLibrary()
 		{
 			var library = new Library();
 
@@ -33,7 +22,6 @@ namespace Example2.Tests
 			Assert.That(library.Books.FirstOrDefault().Genre, Is.EqualTo("Fiction"));
 		}
 
-
 		[Test]
 		public void BooksCanBeRetrivedBygenre()
 		{
@@ -41,7 +29,7 @@ namespace Example2.Tests
 
 			library.AddBook("1984", "George Orwell", "Fiction");
 
-			Assert.That(library.GetBooksByGenre("Fiction").FirstOrDefault().Key, Is.EqualTo("1984"));
+			Assert.That(library.GetBooksByGenre("Fiction").FirstOrDefault().Title, Is.EqualTo("1984"));
 		}
 
 		[Test]
@@ -54,7 +42,6 @@ namespace Example2.Tests
 			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
 			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
 			Assert.That(library.Books.FirstOrDefault().Genre, Is.EqualTo(""));
-
 		}
 
 
