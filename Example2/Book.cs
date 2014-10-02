@@ -6,10 +6,10 @@
 		public string Title { get; set; }
 		public string Genre { get; set; }
 
-		public Book(string author, string title, string genre)
+		public Book(string title, string author, string genre)
 		{
-			Author = author;
 			Title = title;
+			Author = author;
 			Genre = genre;
 		}
 	}

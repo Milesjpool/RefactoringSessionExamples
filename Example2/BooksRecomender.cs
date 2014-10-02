@@ -70,22 +70,22 @@ namespace Example2
 			return returnableRecommendBooks;
 		}
 
-		public void CreateBookRecommendations(string title1, string author1, string genreOfBook1, string titleOfBook2, string authorOfBook2, string typeofBook2)
+		public void CreateBookRecommendations(string title1, string author1, string genre1, string title2, string author2, string genre2)
 		{
 
-			AddLibraryIfNotPresent(title1, author1, genreOfBook1);
-			AddLibraryIfNotPresent(titleOfBook2, authorOfBook2, typeofBook2);
+			AddLibraryIfNotPresent(title1, author1, genre1);
+			AddLibraryIfNotPresent(title2, author2, genre2);
 
-			RecommendedBooks.Add(new KeyValuePair<string, string>(title1,titleOfBook2));
+			RecommendedBooks.Add(new KeyValuePair<string, string>(title1,title2));
 
 
 		}
 
-		private void AddLibraryIfNotPresent(string title1, string author1, string genreOfBook1)
+		private void AddLibraryIfNotPresent(string title1, string author1, string genre1)
 		{
 			if (Books.BooksAndAuthors.Find(x => x.Value == title1).Value == null)
 			{
-				Books.AddBook(title1, author1, genreOfBook1);
+				Books.AddBook(title1, author1, genre1);
 			}
 		}
 	}

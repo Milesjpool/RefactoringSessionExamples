@@ -22,6 +22,19 @@ namespace Example2.Tests
 		}
 
 		[Test]
+		public void BookObjectCanBeAddedToLibrary()
+		{
+			var library = new Library();
+
+			library.AddBook("1984", "George Orwell", "Fiction");
+
+			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
+			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
+			Assert.That(library.Books.FirstOrDefault().Genre, Is.EqualTo("Fiction"));
+		}
+
+
+		[Test]
 		public void BooksCanBeRetrivedBygenre()
 		{
 			var library = new Library();
