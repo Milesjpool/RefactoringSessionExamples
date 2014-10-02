@@ -43,16 +43,20 @@ namespace Example2.Tests
 
 			Assert.That(library.GetBooksByGenre("Fiction").FirstOrDefault().Key, Is.EqualTo("1984"));
 		}
-		
+
 		[Test]
-		public void BooksWithNoGenreCanBeAdded()
+		public void BookWithNoGenreCanBeAdded()
 		{
 			var library = new Library();
 
-			library.AddBookWithNoGenre("1984", "George Orwell");
+			library.AddBook("1984", "George Orwell");
 
-			Assert.That(library.BooksAndAuthors.Contains(new KeyValuePair<string, string>("George Orwell", "1984")));
+			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
+			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
+			Assert.That(library.Books.FirstOrDefault().Genre, Is.EqualTo(""));
+
 		}
+
 
 		[Test]
 		public void BooksCanBeRecomendedByGenre()

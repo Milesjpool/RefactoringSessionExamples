@@ -21,7 +21,7 @@ namespace Example2
 			Books = new List<Book>();
 	    }
 
-	    public void AddBook(string title, string author, string genre)
+	    public void AddBook(string title, string author, string genre = "")
 		{
 			BooksAndAuthors.Add(new KeyValuePair<string, string>(author,title));
 			BooksAndGenres.Add(new KeyValuePair<string, string>(title, genre));
@@ -33,10 +33,5 @@ namespace Example2
 	    {
 		    return BooksAndGenres.FindAll(x => x.Value == typeOfBook);
 	    }
-
-		public void AddBookWithNoGenre(string bookName, string author)
-		{
-			BooksAndAuthors.Add(new KeyValuePair<string, string>(author, bookName));
-		}
     }
 }
