@@ -2,11 +2,11 @@
 {
 	public class Book
 	{
-		public string Author { get; set; }
-		public string Title { get; set; }
-		public string Genre { get; set; }
+		public string Author { get; private set; }
+		public string Title { get; private set; }
+		public string Genre { get; private set; }
 
-		public Book(string title, string author, string genre)
+		public Book(string title, string author, string genre = "")
 		{
 			Title = title;
 			Author = author;
