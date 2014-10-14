@@ -14,40 +14,37 @@ namespace Example2.Tests
 		public void BookCanBeAddedToLibrary()
 		{
 			var library = new Library();
+			var book = new Book("1984", "George Orwell", "Fiction");
+			
+			library.AddBook(book);
 
-			library.AddBook("1984", "George Orwell", "Fiction");
-
-			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
-			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
-			Assert.That(library.Books.FirstOrDefault().Genre, Is.EqualTo("Fiction"));
+			Assert.That(library.Books.FirstOrDefault(), Is.EqualTo(book));
 		}
 
 		[Test]
 		public void BookWithNoGenreCanBeAdded()
 		{
 			var library = new Library();
+			var book = new Book("1984", "George Orwell");
 
-			library.AddBook("1984", "George Orwell");
+			library.AddBook(book);
 
-			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
-			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
-			Assert.That(library.Books.FirstOrDefault().Genre, Is.EqualTo(""));
+			Assert.That(library.Books.FirstOrDefault(), Is.EqualTo(book));
+
 		}
 
 		[Test]
 		public void BooksCanBeRecommendedByGenre()
 		{
 			var library = new Library();
+			var book = new Book("1984", "George Orwell", "Fiction");
 
-			library.AddBook("1984", "George Orwell", "Fiction");
-			
+			library.AddBook(book);
+
 			var recommender = new BooksRecommender(library);
 
-			Assert.That(recommender.GetBooksByGenre("Fiction").FirstOrDefault().Title, Is.EqualTo("1984"));
-			Assert.That(recommender.GetBooksByGenre("Fiction").FirstOrDefault().Author, Is.EqualTo("George Orwell"));
-			Assert.That(recommender.GetBooksByGenre("Fiction").FirstOrDefault().Genre, Is.EqualTo("Fiction"));
+			Assert.That(recommender.GetBooksByGenre("Fiction").FirstOrDefault(), Is.EqualTo(book));
 		}
-
 
 		[Test]
 		public void BooksCanBeRecommendedByTitle()
@@ -58,18 +55,17 @@ namespace Example2.Tests
 			var book2 = new Book("Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
 			var book3 = new Book("Fahrenheit 451", "Ray Bradbury", "Dystopian");
 
-			library.AddBook(book1.Title, book1.Author, book1.Genre);
-			library.AddBook(book2.Title, book2.Author, book2.Genre);
-			library.AddBook(book3.Title, book3.Author, book3.Genre);
+			library.AddBook(book1);
+			library.AddBook(book2);
+			library.AddBook(book3);
 
 			var recomender = new BooksRecommender(library);
 
 			recomender.LinkSimilarBooks(book1,book2);
 
-			var booksIMayLike = recomender.RecommendByBook("1984");
+			var booksIMayLike = recomender.RecommendByBook(book1);
 
-			Assert.That(booksIMayLike.FirstOrDefault().Author, Is.EqualTo("Kurt Vonnegut"));
-			Assert.That(booksIMayLike.FirstOrDefault().Title, Is.EqualTo("Slaughterhouse-Five"));
+			Assert.That(booksIMayLike.FirstOrDefault(), Is.EqualTo(book2));
 		}
     }
 }
