@@ -1,4 +1,6 @@
-﻿namespace Example2
+﻿using System.Collections.Generic;
+
+namespace Example2
 {
 	public class Book
 	{

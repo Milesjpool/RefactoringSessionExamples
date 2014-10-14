@@ -2,9 +2,9 @@
 {
 	public class LinkedBooks
 	{
-		protected Book Book1 { get; set; }
-		protected Book Book2 { get; set; }
-		public Book MatchedBook { get; private set; }
+		private Book Book1 { get; set; }
+		private Book Book2 { get; set; }
+		private Book MatchedBook { get; set; }
 
 		public LinkedBooks(Book book1, Book book2)
 		{

@@ -7,73 +7,50 @@ namespace Example2
 	{
 		public Library Library { get; set; }
 
-		public List<KeyValuePair<string, string>> RecommendedBooks { get; set; }
+		public List<KeyValuePair<Book, Book>> SimilarBooks { get; set; }
 
 		public BooksRecommender(Library books)
 		{
 			Library = books;
-			RecommendedBooks = new List<KeyValuePair<string, string>>();
-
+			SimilarBooks = new KeyValuePair<Book, Book>>();
 		}
 
-		public List<Book> GetBooksByGenre(string genre)
+		public IEnumerable<Book> GetBooksByGenre(string genre)
 		{
 			return Library.Books.FindAll(x => x.Genre == genre);
 		}
 
-
-		public object RecommendByBook(string title, string author)
+		public List<Book> RecommendByBook(Book bookForRecommendation)
 		{
-			List<KeyValuePair<string, string>> recommendBooks = new List<KeyValuePair<string, string>>();
-			String PossibleBook;
-			//go through the list of books in the library
-			foreach (var book in Library.BooksAndAuthors)
+			var recommendBooks = new List<Book>();
+
+			foreach (var bookPair in SimilarBooks)
 			{
-				//if there is a book in the library with the same title as the book asked for a recomendation
-				if (title == book.Value)
+				if (bookForRecommendation == bookPair.Key)
 				{
-					//find books with the same title in recomended books
-					foreach (var bookForRecomendation in RecommendedBooks)
-					{
-						foreach (var bookForRecomendationToUser in this.RecommendedBooks)
-						{
-							if (bookForRecomendationToUser.Key == title)
-							{
-								PossibleBook = bookForRecomendation.Value;
-
-								foreach (var bookMaybe in Library.BooksAndAuthors)
-								{
-									if (bookMaybe.Value == PossibleBook)
-									{
-										recommendBooks.Add(bookMaybe);
-									}
-								}
-							}
-						}
-
-					}
+					recommendBooks.Add(bookPair.Value);
+				}
+				if (bookForRecommendation == bookPair.Value)
+				{
+					recommendBooks.Add(bookPair.Key);
 				}
 			}
-
 			return recommendBooks;
 		}
 
-		public void CreateBookRecommendations(string title1, string author1, string genre1, string title2, string author2, string genre2)
+		public void CreateBookRecommendations(Book book1, Book book2)
 		{
+			AddLibraryIfNotPresent(book1);
+			AddLibraryIfNotPresent(book2);
 
-			AddLibraryIfNotPresent(title1, author1, genre1);
-			AddLibraryIfNotPresent(title2, author2, genre2);
-
-			RecommendedBooks.Add(new KeyValuePair<string, string>(title1,title2));
-
-
+			SimilarBooks.Add(new KeyValuePair<Book, Book>(book1, book2));
 		}
 
-		private void AddLibraryIfNotPresent(string title1, string author1, string genre1)
+		private void AddLibraryIfNotPresent(Book book)
 		{
-			if (Library.BooksAndAuthors.Find(x => x.Value == title1).Value == null)
+			if (!Library.Books.Contains(book))
 			{
-				Library.AddBook(title1, author1, genre1);
+				Library.AddBook(book);
 			}
 		}
 	}

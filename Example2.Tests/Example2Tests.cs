@@ -15,7 +15,7 @@ namespace Example2.Tests
 		{
 			var library = new Library();
 
-			library.AddBook("1984", "George Orwell", "Fiction");
+			library.AddBook(new Book("1984", "George Orwell", "Fiction"));
 
 			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
 			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
@@ -27,7 +27,7 @@ namespace Example2.Tests
 		{
 			var library = new Library();
 
-			library.AddBook("1984", "George Orwell");
+			library.AddBook( new Book("1984", "George Orwell"));
 
 			Assert.That(library.Books.FirstOrDefault().Title, Is.EqualTo("1984"));
 			Assert.That(library.Books.FirstOrDefault().Author, Is.EqualTo("George Orwell"));
@@ -39,7 +39,7 @@ namespace Example2.Tests
 		{
 			var library = new Library();
 
-			library.AddBook("1984", "George Orwell", "Fiction");
+			library.AddBook(new Book("1984", "George Orwell", "Fiction"));
 			
 			var recommender = new BooksRecommender(library);
 
@@ -54,15 +54,17 @@ namespace Example2.Tests
 		{
 			var library = new Library();
 
-			library.AddBook("1984", "George Orwell", "Fiction");
-			library.AddBook("Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
-			library.AddBook("Fahrenheit 451", "Ray Bradbury", "Dystopian");
+			library.AddBook(new Book("1984", "George Orwell", "Fiction"));
+			library.AddBook(new Book("Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical"));
+			library.AddBook(new Book("Fahrenheit 451", "Ray Bradbury", "Dystopian"));
 
 			var recomender = new BooksRecommender(library);
 
-			recomender.CreateBookRecommendations("1984", "George Orwell", "Fiction", "Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
+			var book1 = new Book("1984", "George Orwell", "Fiction");
+			var book2 = new Book("Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
+			recomender.CreateBookRecommendations(book1, book2);
 
-			var booksIMayLike = recomender.RecommendByBook("1984", "George Orwell");
+			Assert.That(recomender.RecommendByBook(book1).FirstOrDefault(), Is.EqualTo(book2));
 		}
     }
 }
