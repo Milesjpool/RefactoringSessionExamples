@@ -50,26 +50,19 @@ namespace Example2.Tests
 
 
 		[Test]
-		public void BooksCanBeRecommendedByTitle()
+		public void BooksCanBeRecommendedByAuthor()
 		{
 			var library = new Library();
 
-			var book1 = new Book("1984", "George Orwell", "Fiction");
-			var book2 = new Book("Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
-			var book3 = new Book("Fahrenheit 451", "Ray Bradbury", "Dystopian");
-
-			library.AddBook(book1.Title, book1.Author, book1.Genre);
-			library.AddBook(book2.Title, book2.Author, book2.Genre);
-			library.AddBook(book3.Title, book3.Author, book3.Genre);
+			library.AddBook("1984", "George Orwell", "Fiction");
+			library.AddBook("Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
+			library.AddBook("Fahrenheit 451", "Ray Bradbury", "Dystopian");
 
 			var recomender = new BooksRecommender(library);
 
-			recomender.LinkSimilarBooks(book1,book2);
+			recomender.CreateBookRecommendations("1984", "George Orwell", "Fiction", "Slaughterhouse-Five", "Kurt Vonnegut", "Semi-Autobiographical");
 
-			var booksIMayLike = recomender.RecommendByBook("1984");
-
-			Assert.That(booksIMayLike.FirstOrDefault().Author, Is.EqualTo("Kurt Vonnegut"));
-			Assert.That(booksIMayLike.FirstOrDefault().Title, Is.EqualTo("Slaughterhouse-Five"));
+			var booksIMayLike = recomender.RecommendByBook("1984", "George Orwell");
 		}
     }
 }
